@@ -15,10 +15,6 @@ define(['backbone'], function(Backbone){
             return this;
         },
 
-        remove: function(){
-            this.remove();
-        },
-
         setActive: function(){
             if (this.model.get('active')) {
                 $(this.el).addClass('active');
@@ -43,7 +39,7 @@ define(['backbone'], function(Backbone){
 
             var currentWordPos = $(this.el).offset();
             var prevWord = $(this.el).prev().offset();
-            var currentPos = parseInt($(this.el).parent().css('top')) || 0;
+            var currentPos = parseInt($(this.el).parent().css('top'), 10) || 0;
 
             if (currentWordPos.top > prevWord.top){
                 $(this.el).parent().css('top', currentPos-36);

@@ -9,7 +9,7 @@ define(['backbone'], function(Backbone){
         },
 
         initialize: function(){
-            this.$input = this.$('input');
+            this.$input = this.$('.entry');
             this.$reload = this.$('.reload');
             this.$timer = this.$('.timer');
             this.statsTemplate = _.template($('#stats').html());

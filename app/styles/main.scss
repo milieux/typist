@@ -1,0 +1,167 @@
+@import "_normalize.scss";
+
+$bgcolor:#F1F4F9;
+$black:#333333;
+$semi-black:#777777;
+$white:#ffffff;
+$blue:#30ABD5;
+$light-blue:#8bcae9;
+$green:#31b75b;
+$red:#f8373a;
+$grey:#dddddd;
+
+@mixin transition($value){
+    -webkit-animation:$value;
+    animation:$value;
+}
+
+
+body {
+    background:$bgcolor;
+    font-family:'Open Sans', Arial, Helvetica;
+    color:$black;
+}
+
+.active {
+    font-size:1em;
+    background:$light-blue;
+}
+
+.correct {
+    color:$green;
+}
+
+.incorrect {
+    color:$red;
+}
+
+h1 {
+    color:$blue;
+    margin:0.5em 0;
+    text-shadow:0 1px 0 darken($blue,30%);
+    font-size:3em;
+    white-space:nowrap;
+    overflow:hidden;
+    width:80%;
+    @include transition(type 4s steps(50, end));
+}
+
+.fast-fingers {
+    margin:0 auto;
+    width:80%;
+    max-width:40em;
+}
+
+.box {
+    border:1px solid $grey;
+    height:4.5em;
+    padding:0 0.5em;
+    margin:1em auto;
+    background:$white;
+    overflow:hidden;
+    font-size:1.5em;
+
+    .list-of-words {
+        margin:0;
+        padding:0;
+        overflow:hidden;
+        position:relative;
+        top:0;
+
+        li {
+            display:inline-block;
+            padding:0.25em 0.2em;
+            margin:0;
+            list-style:none;
+            line-height:1;
+            border-radius:3px;
+            transition:all 0.2s;
+        }
+    }
+}
+
+
+.typist {
+    .input * {
+        display:inline-block;
+        margin-bottom:0.5em;
+        font-size:1.5em;
+    }
+
+    .entry {
+        padding:0.2em 0.3em;
+        max-width:20em;
+        width:60%;
+        border:none;
+        border-bottom:1px solid $semi-black;
+        background:transparent;
+        margin-right:1%;
+
+        &:focus {
+            outline:none;
+        }
+
+        &[disabled]{
+            color:#999;
+            border-bottom-color:$grey;
+        }
+    }
+
+    .timer {
+        display:inline-block;
+        color:$white;
+        background:$blue;
+        padding:0.25em 0.4em;
+        margin-right:1%;
+    }
+
+    .reload {
+        border:0;
+        padding:0.25em 0.4em;
+        background:$red;
+        color:$white;
+        transition:all 0.5s;
+
+        &:hover{
+            background:darken($red,20%);
+        }
+
+        &[disabled]{
+            color:$semi-black;
+            background:$grey;
+        }
+    }
+
+    .stats {
+        background:$white;
+        margin:2em 0;
+        width:12em;
+        font-size:1.2em;
+
+        th, td {
+            padding:0.5em;
+        }
+
+        th {
+            font-weight:normal;
+            text-align:left;
+        }
+
+        td {
+            text-align:right;
+        }
+
+        .header {
+            border-bottom:1px solid $grey;
+        }
+    }
+}
+
+
+@keyframes type{
+    from { width:0; }
+}
+
+@-webkit-keyframes type{
+    from { width:0; }
+}
